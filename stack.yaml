@@ -1,16 +1,34 @@
 AWSTemplateFormatVersion: 2010-09-09
 
 Parameters:
-  Name: react-actions
-  Repository: https://github.com/priyankach510/react-actions
-  Branch: master
-  OauthToken: https://github.com/priyankach510/react-actions
-  Domain: react-actions
+  Name:
+    Type: String
+    Description: Name of the app
+
+  Repository:
+    Type: String
+    Description: GitHub Repository URL
+
+  Branch:
+    Type: String
+    Description: Github Repository Branch
+    Default: master
+
+  OauthToken:
+    Type: String
+    Description: GitHub Repository URL
+    NoEcho: true
+
+  Domain:
+    Type: String
+    Description: Domain name to host application
+    Default: ""
+
 Conditions: 
   UseCustomDomain: !Not [!Equals [!Ref Domain, ""]]
 
 Resources:
-  AmplifyRole: 
+  AmplifyRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
