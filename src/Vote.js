@@ -7,7 +7,7 @@ export default class Vote extends React.Component {
         squares: Array(9).fill(null),
       }],
       xIsNext: true,
-      votes:[],
+      votes:["1" , "2"],
       totalReactPackages:[]
     };
   }
@@ -31,7 +31,8 @@ export default class Vote extends React.Component {
 
   addVote = () => {
     let votes = this.state.votes;
-    votes.push('vote2')
+    let voteValue = votes.length + 1;    
+    votes.push(voteValue);
     this.setState({votes:votes});
   }
 
